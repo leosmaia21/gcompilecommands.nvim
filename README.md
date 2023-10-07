@@ -1,0 +1,1 @@
+# gcompilecommands_nvim
