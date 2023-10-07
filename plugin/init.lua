@@ -5,6 +5,7 @@ local function generateCompileCommands()
 	vim.cmd('silent! !(make fclean)')
 	local current_dir = vim.fn.getcwd()
 	local cmd = "!(make 2>&1 -wn | egrep 'gcc|clang|clang\\+\\+|g\\+\\+.*' > /tmp/compile_commandsNEOVIM.json)"
+	vim.cmd("silent! " .. cmd)
 	if vim.v.shell_error == 0 then
 		local f = io.open("/tmp/compile_commandsNEOVIM.json", "r")
 		if f == nil then
