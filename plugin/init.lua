@@ -15,7 +15,7 @@ local function generateCompileCommands()
 		file:write("[\n")
 		for line in str:gmatch("[^\r\n]+") do
 			local current_dir = line:match("^%S+")
-			print(current_dir)
+			-- print(current_dir)
 			--filename is the last word in the line
 			local filename = line:match("[^%s]+$")
 			--command is everything except the filename
