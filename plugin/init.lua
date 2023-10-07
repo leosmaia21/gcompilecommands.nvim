@@ -1,7 +1,5 @@
 -- generate compile_commands.json for c/c++ project
 
-
-
 print("CompileCommands.lua loaded")
 local function generateCompileCommands()
 	vim.cmd('silent! !(make fclean)')
@@ -10,6 +8,8 @@ local function generateCompileCommands()
 		local f = io.open("/tmp/compile_commandsNEOVIM.json", "r")
 		local str = f:read("*a")
 		local current_dir = vim.fn.getcwd()
+		print("current_dir: " .. current_dir)
+		return
 		local file = io.open(current_dir .. "/compile_commands.json", "w")
 		file:write("[\n")
 		for line in str:gmatch("[^\r\n]+") do
