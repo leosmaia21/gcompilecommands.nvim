@@ -14,7 +14,7 @@ local function generateCompileCommands()
 		end
 		local str = f:read("*a")
 		local current_dir = vim.fn.getcwd()
-		local file = io.open(current_dir .. "/compile_commandsNEOVIM.json", "w")
+		local file = io.open(current_dir .. "/compile_commands.json", "w")
 		file:write("[\n")
 		for line in str:gmatch("[^\r\n]+") do
 			--filename is the last word in the line
