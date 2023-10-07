@@ -4,7 +4,7 @@ This is a simple plugin to generate the `compile_commands.json` file.
 
 ## Overview
 
-The main purpose of this plugin is to facilitate the generation of the `compile_commands.json` file in Neovim projects. The `compile_commands.json` file is used by various development tools for static code analysis, auto-completion, and more.
+The main purpose of this plugin is to facilitate the generation of the `compile_commands.json` file in Neovim projects, when you don't have access to other tools like [bear](https://github.com/rizsotto/Bear). The `compile_commands.json` file is used by various development tools for static code analysis, auto-completion, and more.
 
 ## How to Use
 
