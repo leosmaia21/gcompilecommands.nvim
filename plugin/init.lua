@@ -3,6 +3,10 @@
 print("CompileCommands.lua loaded")
 local function generateCompileCommands()
 	vim.cmd('silent! !(make fclean)')
+		local current_dir = vim.fn.getcwd()
+
+		print("current_dir: " .. current_dir)
+	return
 	local cmd = "!(make 2>&1 -wn | egrep 'gcc|clang|clang\\+\\+|g\\+\\+.*' > /tmp/compile_commandsNEOVIM.json)"
 	if vim.v.shell_error == 0 then
 		local f = io.open("/tmp/compile_commandsNEOVIM.json", "r")
