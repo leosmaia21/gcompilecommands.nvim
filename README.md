@@ -12,7 +12,7 @@ To use this plugin, follow these simple steps:
 
 1. Make sure you have Neovim installed.
 
-2. Install this plugin in your Neovim environment using your preferred method (e.g., using a plugin manager like [vim-plug](https://github.com/junegunn/vim-plug)).
+2. Install this plugin in your Neovim environment using your preferred method (e.g., using a plugin manager like [vim-plug](https://github.com/folke/lazy.nvim)).
 
 3. In your project file, open Neovim and run the `:Gcompilecommands` command. This will execute the `make` command in dry-run mode to generate the `compile_commands.json` file. Note that it will also run `make fclean` before generating the file.
 
