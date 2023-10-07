@@ -1,4 +1,8 @@
 -- generate compile_commands.json for c/c++ project
+
+
+
+print("CompileCommands.lua loaded")
 local function generateCompileCommands()
 	vim.cmd('silent! !(make fclean)')
 	local cmd = "!(make 2>&1 -wn | egrep 'gcc|clang|clang\\+\\+|g\\+\\+.*' > /tmp/compile_commandsNEOVIM.json)"
