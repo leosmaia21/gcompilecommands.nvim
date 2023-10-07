@@ -1,6 +1,5 @@
 -- generate compile_commands.json for c/c++ project
 
-print("CompileCommands.lua loaded")
 local function generateCompileCommands()
 	vim.cmd('silent! !(make fclean)')
 	local current_dir = vim.fn.getcwd()
@@ -34,7 +33,7 @@ local function generateCompileCommands()
 	end
 end
 
-vim.api.nvim_create_user_command('CompileCommands', function()
+vim.api.nvim_create_user_command('Gcompilecommands', function()
 	generateCompileCommands()
 
 end, {})
