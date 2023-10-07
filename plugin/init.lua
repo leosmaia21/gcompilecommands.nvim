@@ -2,7 +2,6 @@
 
 local function generateCompileCommands()
 	vim.cmd('silent! !(make fclean)')
-	local current_dir = vim.fn.getcwd()
 	local cmd = "!(make 2>&1 -wn | egrep 'gcc|clang|clang\\+\\+|g\\+\\+.*' > /tmp/compile_commandsNEOVIM.json)"
 	vim.cmd("silent! " .. cmd)
 	if vim.v.shell_error == 0 then
@@ -12,10 +11,12 @@ local function generateCompileCommands()
 			return
 		end
 		local str = f:read("*a")
-		local current_dir = vim.fn.getcwd()
+
 		local file = io.open(current_dir .. "/compile_commands.json", "w")
 		file:write("[\n")
 		for line in str:gmatch("[^\r\n]+") do
+			local current_dir = line:match("^%S+")
+			print(current_dir)
 			--filename is the last word in the line
 			local filename = line:match("[^%s]+$")
 			--command is everything except the filename
