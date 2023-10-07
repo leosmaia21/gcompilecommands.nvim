@@ -28,7 +28,7 @@ local function generateCompileCommands()
 		f:close()
 		file:close()
 		vim.cmd('silent! LspRestart')
-		print("compile_commands.json generated, LSP restarted")
+		-- print("compile_commands.json generated, LSP restarted")
 	else
 		print("Make failed")
 	end
