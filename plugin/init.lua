@@ -11,8 +11,7 @@ local function generateCompileCommands()
 			return
 		end
 		local str = f:read("*a")
-
-		local file = io.open(current_dir .. "/compile_commands.json", "w")
+		local file = io.open(vim.fn.getcwd() .. "/compile_commands.json", "w")
 		file:write("[\n")
 		for line in str:gmatch("[^\r\n]+") do
 			local current_dir = line:match("^%S+")
