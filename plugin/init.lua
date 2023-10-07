@@ -7,6 +7,10 @@ local function generateCompileCommands()
 	local cmd = "!(make 2>&1 -wn | egrep 'gcc|clang|clang\\+\\+|g\\+\\+.*' > /tmp/compile_commandsNEOVIM.json)"
 	if vim.v.shell_error == 0 then
 		local f = io.open("/tmp/compile_commandsNEOVIM.json", "r")
+		if f == nil then
+			print("Make failed")
+			return
+		end
 		local str = f:read("*a")
 		local current_dir = vim.fn.getcwd()
 		local file = io.open(current_dir .. "/compile_commandsNEOVIM.json", "w")
